@@ -2,30 +2,16 @@
 Imports System.Globalization
 Imports System.Reflection.Emit
 Imports System.Text
-Imports System.Timers
 
 Public Class Form1
-
-    Private Sub SalirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Close()
-    End Sub
-
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim cadena As String = "La base de datos cuenta con los siguentes atributos: nombre_completo varchar(30), edad int, exo Char(3) null default 'M', id Char(8) primary key, carrera varchar(30)"
-
-
-        MessageBox.Show(cadena, "Informacion", MessageBoxButtons.OK)
-
-
-    End Sub
-
+    'En este Form se mostraba un RichText para la escritura
+    
     Private Sub ToolStripLabel1_Click(sender As Object, e As EventArgs) Handles ToolStripLabel1.Click
-
-        Dim Ejecutar As Datos = New Datos()
-        Ejecutar.Abrir_Conexion()
-        Dim a As Boolean
-        a = Ejecutar.Traductor(RichTextBox1.Text)
-        If (a = True) Then
+        Dim Ejecutar As Datos = New Datos()         'Se crea un objeto del tipo Datos (Conexion con SQL)
+        Ejecutar.Abrir_Conexion()                   'Se abre la conexion con SQL
+        Dim a As Boolean                
+        a = Ejecutar.Traductor(RichTextBox1.Text)   'Se envia la cadena de texto para ejecutar la sentencia, si hay algun error en la sintaxis o error en los datos regresara un
+        If (a = True) Then                          'falso, enviara un mensaje el cual nos dira que ocurrio un error.
             DialogResult = MessageBox.Show("Comando ejecutado correctamente, ¿desea eliminar los datos en el campo?", "Informacion", MessageBoxButtons.YesNo)
             If (DialogResult.Yes) Then
                 RichTextBox1.Clear()
@@ -33,15 +19,9 @@ Public Class Form1
         Else
             MessageBox.Show("Error en el comando", "Informacion", MessageBoxButtons.OK)
         End If
-        Ejecutar.Cerrar_Conexion()
-    End Sub
-
-    Private Sub ToolStripLabel2_Click(sender As Object, e As EventArgs) Handles ToolStripLabel2.Click
-        MessageBox.Show("CONSULTE AL DESARROLLADOR", "Ayuda", MessageBoxButtons.OK)
-    End Sub
-
-    Private Sub ToolStripLabel3_Click(sender As Object, e As EventArgs) Handles ToolStripLabel3.Click
-        Close()
-
+        Ejecutar.Cerrar_Conexion()                  'Se cierra la conexion
     End Sub
 End Class
+
+
+'Si no se cierra la conexion puede haber perdida de datos o que ocurra un error inesperado con SQL lo que nos podria colapsar todo el programa
