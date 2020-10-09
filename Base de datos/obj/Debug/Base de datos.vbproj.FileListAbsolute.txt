@@ -1,0 +1,12 @@
+C:\Users\ivan_\source\repos\Base de datos\bin\Debug\Base de datos.exe.config
+C:\Users\ivan_\source\repos\Base de datos\bin\Debug\Base de datos.exe
+C:\Users\ivan_\source\repos\Base de datos\bin\Debug\Base de datos.pdb
+C:\Users\ivan_\source\repos\Base de datos\bin\Debug\Base de datos.xml
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base de datos.vbprojAssemblyReference.cache
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base_de_datos.Form1.resources
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base_de_datos.Resources.resources
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base de datos.vbproj.GenerateResource.cache
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base de datos.vbproj.CoreCompileInputs.cache
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base de datos.exe
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base de datos.xml
+C:\Users\ivan_\source\repos\Base de datos\obj\Debug\Base de datos.pdb
