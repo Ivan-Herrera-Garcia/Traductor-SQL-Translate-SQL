@@ -10,14 +10,14 @@ Public Class Form1
         Dim Ejecutar As Datos = New Datos()         'Se crea un objeto del tipo Datos (Conexion con SQL)
         Ejecutar.Abrir_Conexion()                   'Se abre la conexion con SQL
         Dim a As Boolean                
-        a = Ejecutar.Traductor(RichTextBox1.Text)   'Se envia la cadena de texto para ejecutar la sentencia, si hay algun error en la sintaxis o error en los datos regresara un
-        If (a = True) Then                          'falso, enviara un mensaje el cual nos dira que ocurrio un error.
-            DialogResult = MessageBox.Show("Comando ejecutado correctamente, ¿desea eliminar los datos en el campo?", "Informacion", MessageBoxButtons.YesNo)
-            If (DialogResult.Yes) Then
-                RichTextBox1.Clear()
-            End If
+        a = Ejecutar.Traductor(RichTextBox1.Text) or Ejecutar.Mostrar_datos(DataGridView1, RichTextBox1.Text)   'Se envia la cadena de texto para ejecutar la sentencia, si hay algun error en la sintaxis o error en los datos regresara un
+        If (a = True) Then                                                                                      'falso, enviara un mensaje el cual nos dira que ocurrio un error.
+           DialogResult = MessageBox.Show("Comando ejecutado correctamente", "Informacion", MessageBoxButtons.OK)
+            estado.Text = "Estado: Comando ejecutado correctamente"
         Else
             MessageBox.Show("Error en el comando", "Informacion", MessageBoxButtons.OK)
+            estado.ForeColor = Color.Red
+            estado.Text = "Estado: Error en el Comando"
         End If
         Ejecutar.Cerrar_Conexion()                  'Se cierra la conexion
     End Sub
